@@ -1,0 +1,22 @@
+{
+  "name": "img-resize",
+  "version": "1.0.0",
+  "description": "Resize any image without a significant loss in quality",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elusive7733/Img-Resize.git"
+  },
+  "author": "Abdullah Raheel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Elusive7733/Img-Resize/issues"
+  },
+  "homepage": "https://github.com/Elusive7733/Img-Resize#readme",
+  "devDependencies": {
+    "electron": "^11.2.0"
+  }
+}
