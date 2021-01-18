@@ -1,16 +1,18 @@
 //destructuring i.e bringing things out of electron
 const {app, BrowserWindow } = require('electron')
 
+let mainWindow 
 function createMainWindow(){
-    const mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         title: 'Image Shrink',
-        width: 1920,
-        height: 1080,
+        width: 1680,
+        height: 940,
         alwaysOnTop: true,
         darkTheme: true,
-        opacity: 0.5,
+        opacity: 1,
     })
-
+     
+    mainWindow.loadURL(`file://${__dirname}/app/index.html`)
 }
 
 
