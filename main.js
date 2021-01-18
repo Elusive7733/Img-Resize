@@ -8,7 +8,7 @@ function createMainWindow(){
         height: 1080,
         alwaysOnTop: true,
         darkTheme: true,
-        opacity: 1,
+        opacity: 0.5,
     })
 
 }
