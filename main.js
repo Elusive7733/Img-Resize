@@ -1,5 +1,5 @@
 //destructuring i.e bringing things out of electron
-const {app, BrowserWindow } = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 
 //set enviournment 
 process.env.NODE_ENV = 'development'
@@ -25,7 +25,35 @@ function createMainWindow(){
     mainWindow.loadFile('./app/index.html')
 }
  
-app.on('ready', createMainWindow)
+app.on('ready', () => {
+    createMainWindow()
+
+    //Menu object from electron builds from template
+    const mainMenu = Menu.buildFromTemplate(menu)
+    //Menu object also sets that menu
+    Menu.setApplicationMenu(mainMenu)
+    mainWindow.on('ready', () => (mainWindow = null))
+})
+
+
+//template for menu
+const menu = [
+    {
+        label: 'File',
+        submenu: [
+            {
+                label: 'Quit',
+                accelerator: isMac ? 'Command+Q' : 'Ctrl+Q',
+                click: () => app.quit()
+            }
+        ]
+    }
+]
+
+if(isMac){
+    menu.unshift({ role: 'appMenu' })
+}
+
 
 app.on('window-all-closed', () => {
 
