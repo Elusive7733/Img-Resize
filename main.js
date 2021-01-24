@@ -7,7 +7,9 @@ process.env.NODE_ENV = 'development'
 const isDev = process.env.NODE_ENV !== 'production' ? true : false
 const isMac = process.platform === 'darwin' ? true : false
 
-let mainWindow 
+let mainWindow
+let aboutWindow
+
 function createMainWindow(){
     mainWindow = new BrowserWindow({
         title: 'Image Shrink',
@@ -22,7 +24,22 @@ function createMainWindow(){
     // mainWindow.loadURL(`file://${__dirname}/app/index.html`)
     mainWindow.loadFile('./app/index.html')
 }
- 
+
+function createaboutWindow(){
+    aboutWindow = new BrowserWindow({
+        title: 'About',
+        width: 600,
+        height: 600,
+        // alwaysOnTop: true, 
+        darkTheme: true,
+        opacity: isDev ? 1 : 0.5,
+        icon: './assets/icons/pattern.png',
+        resizable: isDev ? true : false,
+    })
+    // mainWindow.loadURL(`file://${__dirname}/app/index.html`)
+    mainWindow.loadFile('./app/index.html')
+}
+
 app.on('ready', () => {
     createMainWindow()
 
@@ -61,9 +78,10 @@ const menu = [
         { 
             label: 'Developer',
             submenu: [
-                {
-                    role: 'reload',
-                }
+                { role: 'reload' },
+                { role: 'forcereload' },
+                { type: 'separator' },
+                { role: 'toggledevtools' },
             ]
         }
     ] : [])
