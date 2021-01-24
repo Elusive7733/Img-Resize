@@ -1,5 +1,5 @@
 //destructuring i.e bringing things out of electron
-const {app, BrowserWindow, Menu, globalShortcut} = require('electron')
+const {app, BrowserWindow, Menu, globalShortcut, Accelerator} = require('electron')
 
 //set enviournment 
 process.env.NODE_ENV = 'development'
@@ -28,16 +28,15 @@ function createMainWindow(){
 function createaboutWindow(){
     aboutWindow = new BrowserWindow({
         title: 'About',
-        width: 600,
-        height: 600,
-        // alwaysOnTop: true, 
-        darkTheme: true,
-        opacity: isDev ? 1 : 0.5,
-        icon: './assets/icons/pattern.png',
-        resizable: isDev ? true : false,
+        width: 300,
+        height: 300,
+        alwaysOnTop: true, 
+        // darkTheme: true,
+        // opacity: isDev ? 1 : 0.5,
+        // icon: './assets/icons/pattern.png',
+        resizable: false,
     })
-    // mainWindow.loadURL(`file://${__dirname}/app/index.html`)
-    mainWindow.loadFile('./app/index.html')
+    aboutWindow.loadFile('./app/about.html')
 }
 
 app.on('ready', () => {
@@ -73,6 +72,16 @@ const menu = [
         //     }
         // ]
         role : 'fileMenu',
+    },
+    {
+        label: 'View',
+        submenu: [
+            {
+                label: 'About',
+                accelerator: isMac ? 'Command+Shift+A': 'Ctrl+Shift+A',
+                click: () => createaboutWindow()
+            }
+        ]
     },
     ...(isDev ? [
         { 
