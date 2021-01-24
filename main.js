@@ -40,6 +40,11 @@ app.on('ready', () => {
 
 //template for menu
 const menu = [
+    ...BrowserWindow(isMac ? [{role: 'appMenu'}] : []), // a lot neater
+    // above line does the same thing as the below "if" block
+    // if(isMac){
+    //     menu.unshift({ role: 'appMenu' })
+    // }
     {
         label: 'File',
         submenu: [
@@ -53,9 +58,6 @@ const menu = [
     }
 ]
 
-if(isMac){
-    menu.unshift({ role: 'appMenu' })
-}
 
 
 app.on('window-all-closed', () => {
