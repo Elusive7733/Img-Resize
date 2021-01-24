@@ -40,10 +40,14 @@ main{
 #logo{
 	font-family: 'Playfair Display SC', serif;
 	font-weight: 3rem;
+	color: azure;
 }
 
 .landing{
 	/* padding: 0rem 5rem; */
 	position: absolute;
+	top: 15%;
+	left: 50%;
+	transform: translate(-50%, 15%);
 }
 
