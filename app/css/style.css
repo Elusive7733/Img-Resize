@@ -44,5 +44,6 @@ main{
 
 .landing{
 	/* padding: 0rem 5rem; */
+	position: absolute;
 }
 
