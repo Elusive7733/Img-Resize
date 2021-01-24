@@ -28,16 +28,21 @@
 }
 
 main{
-	display: flex;
-	align-items: center;
+	min-height: 100vh;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	/* align-items: center; */
+	background: url("../../assets/Images/orange.jpg");
+	background-size: cover;
+}
+
+#logo{
 	font-family: 'Playfair Display SC', serif;
+	font-weight: 3rem;
 }
 
 .landing{
-	min-height: 100vh;
-	background: url("../../assets/Images/orange.jpg");
-	background-size: cover;
-	padding: 0rem 50rem;
+	/* padding: 0rem 5rem; */
 }
+
