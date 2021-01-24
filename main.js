@@ -40,22 +40,33 @@ app.on('ready', () => {
 
 //template for menu
 const menu = [
-    ...BrowserWindow(isMac ? [{role: 'appMenu'}] : []), // a lot neater
+    ...(isMac ? [{role: 'appMenu'}] : []), // a lot neater
     // above line does the same thing as the below "if" block
     // if(isMac){
     //     menu.unshift({ role: 'appMenu' })
     // }
     {
-        label: 'File',
-        submenu: [
-            {
-                label: 'Quit',
-                //shortcuts
-                accelerator: isMac ? 'Command+Q' : 'Ctrl+Q',
-                click: () => app.quit()
-            }
-        ]
-    }
+        // label: 'File',
+        // submenu: [
+        //     {
+        //         label: 'Quit',
+        //         //shortcuts
+        //         accelerator: isMac ? 'Command+Q' : 'Ctrl+Q',
+        //         click: () => app.quit()
+        //     }
+        // ]
+        role : 'fileMenu',
+    },
+    ...(isDev ? [
+        { 
+            label: 'Developer',
+            submenu: [
+                {
+                    role: 'reload',
+                }
+            ]
+        }
+    ] : [])
 ]
 
  
