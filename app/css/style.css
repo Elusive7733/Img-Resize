@@ -39,7 +39,8 @@ main{
 
 #logo{
 	font-family: 'Playfair Display SC', serif;
-	font-weight: 3rem;
+	font-weight: 3px;
+	font-size: 50px;
 	color: azure;
 }
 
@@ -51,3 +52,20 @@ main{
 	transform: translate(-50%, 15%);
 }
 
+.intro{
+	background: rgba(0, 0, 0, 0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.intro-text{
+	color: azure;
+	font-family: 'Playfair Display SC', serif;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
