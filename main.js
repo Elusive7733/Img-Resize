@@ -1,7 +1,7 @@
 const path = require('path')
 const os = require('os')
 //destructuring i.e bringing things out of electron
-const {app, BrowserWindow, Menu, globalShortcut, ipcMain, shell, ipcRenderer} = require('electron')
+const {app, BrowserWindow, Menu, globalShortcut, ipcMain, shell} = require('electron')
 
 //plugins for the image minimize
 const imagemin = require('imagemin')
