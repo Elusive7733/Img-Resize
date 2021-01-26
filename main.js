@@ -13,14 +13,20 @@ let aboutWindow
 function createMainWindow(){
     mainWindow = new BrowserWindow({
         title: 'Image Shrink',
-        width: 900,
+        width: isDev? 1300: 750,
         height: 1000,
         // alwaysOnTop: true, 
         darkTheme: true,
-        opacity: isDev ? 1 : 0.5,
+        opacity: 1,
         icon: './assets/icons/shrink.png',
         resizable: isDev ? true : false,
+        webPreferences: {
+            nodeIntegration: true,
+        },
     })
+    if(isDev){
+        mainWindow.webContents.openDevTools()
+    }
     // mainWindow.loadURL(`file://${__dirname}/app/index.html`)
     mainWindow.loadFile('./app/index.html')
 }
