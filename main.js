@@ -1,7 +1,7 @@
 const path = require('path')
 const os = require('os')
 //destructuring i.e bringing things out of electron
-const {app, BrowserWindow, Menu, globalShortcut, Accelerator, ipcMain} = require('electron')
+const {app, BrowserWindow, Menu, globalShortcut, ipcMain, shell} = require('electron')
 
 //plugins for the image minimize
 const imagemin = require('imagemin')
@@ -117,13 +117,21 @@ ipcMain.on('image:minimize', (e, data_returned) => {
     //turning windows back slash to forward slashes
     data_returned.imgPath = slash(data_returned.imgPath)
     data_returned.dest = slash(data_returned.dest)
-    console.log(data_returned)
-    // shrinkimage(data_returned)
+    // console.log(data_returned)
+    shrinkimage(data_returned)
 })
 
-async function shrinkimage({imgpath, quality, destination}){
+async function shrinkimage({imgPath, quality, dest}){
     try {
-        // const files = await imagemin([slash(imgpath)])
+        let pngQuality = quality/100
+        const files = await imagemin([imgPath], {
+            destination: dest, 
+            plugins: [
+                imageminMozjpeg({ quality }),
+                imageminPngquant({ quality: [pngQuality, pngQuality] }),
+            ]
+        })
+        shell.openPath(dest)
     }
     catch (err) {
         console.log(err)
