@@ -1,5 +1,13 @@
+const path = require('path')
+const os = require('os')
 //destructuring i.e bringing things out of electron
-const {app, BrowserWindow, Menu, globalShortcut, Accelerator} = require('electron')
+const {app, BrowserWindow, Menu, globalShortcut, Accelerator, ipcMain} = require('electron')
+
+//plugins for the image minimize
+const imagemin = require('imagemin')
+const imageminMozjpeg = require('imagemin-mozjpeg')
+const imageminPngquant = require('imagemin-pngquant')
+const slash = require('slash')
 
 //set enviournment 
 process.env.NODE_ENV = 'development'
@@ -17,7 +25,7 @@ function createMainWindow(){
         height: 1000,
         // alwaysOnTop: true, 
         darkTheme: true,
-        opacity: 1,
+        opacity: 1, 
         icon: './assets/icons/shrink.png',
         resizable: isDev ? true : false,
         webPreferences: {
@@ -103,6 +111,25 @@ const menu = [
 ]
 
  
+ipcMain.on('image:minimize', (e, data_returned) => {
+    data_returned.dest = path.join(os.homedir(), 'Image_Shrink')
+
+    //turning windows back slash to forward slashes
+    data_returned.imgPath = slash(data_returned.imgPath)
+    data_returned.dest = slash(data_returned.dest)
+    console.log(data_returned)
+    // shrinkimage(data_returned)
+})
+
+async function shrinkimage({imgpath, quality, destination}){
+    try {
+        // const files = await imagemin([slash(imgpath)])
+    }
+    catch (err) {
+        console.log(err)
+    }
+
+}
 
 app.on('window-all-closed', () => {
 
@@ -118,3 +145,4 @@ app.on('activate', () => {
 })
 
 app.allowRendererProcessReuse = true
+
