@@ -21,12 +21,12 @@ let aboutWindow
 function createMainWindow(){
     mainWindow = new BrowserWindow({
         title: 'Image Shrink',
-        width: isDev? 1300: 750,
+        width: isDev ? 1300: 750,
         height: 1000,
         // alwaysOnTop: true, 
         darkTheme: true,
         opacity: 1, 
-        icon: './assets/icons/shrink.png',
+        icon: './assets/icons/win/icon.ico',
         resizable: isDev ? true : false,
         webPreferences: {
             nodeIntegration: true,
