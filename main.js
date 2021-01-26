@@ -112,7 +112,7 @@ const menu = [
 
  
 ipcMain.on('image:minimize', (e, data_returned) => {
-    data_returned.dest = path.join(os.homedir(), 'Image_Shrink')
+    data_returned.dest = path.join(os.homedir(), 'Image_Resize')
 
     //turning windows back slash to forward slashes
     data_returned.imgPath = slash(data_returned.imgPath)

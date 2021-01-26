@@ -6,7 +6,7 @@ const form = document.getElementById('image-form')
 const slider = document.getElementById('slider')
 const img = document.getElementById('img')
 
-document.getElementById('output-path').innerText = path.join(os.homedir(), "Image_Shrink")
+document.getElementById('output-path').innerText = path.join(os.homedir(), "Image_Resize")
 
 //on submit
 form.addEventListener('submit', e => {
