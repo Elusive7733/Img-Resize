@@ -1,7 +1,7 @@
 const path = require('path')
 const os = require('os')
 //destructuring i.e bringing things out of electron
-const {app, BrowserWindow, Menu, globalShortcut, ipcMain, shell} = require('electron')
+const {app, BrowserWindow, Menu, globalShortcut, ipcMain, shell, ipcRenderer} = require('electron')
 
 //plugins for the image minimize
 const imagemin = require('imagemin')
@@ -10,7 +10,7 @@ const imageminPngquant = require('imagemin-pngquant')
 const slash = require('slash')
 
 //set enviournment 
-process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 
 const isDev = process.env.NODE_ENV !== 'production' ? true : false
 const isMac = process.platform === 'darwin' ? true : false
@@ -132,6 +132,7 @@ async function shrinkimage({imgPath, quality, dest}){
             ]
         })
         shell.openPath(dest)
+        mainWindow.webContents.send('image:done')
     }
     catch (err) {
         console.log(err)

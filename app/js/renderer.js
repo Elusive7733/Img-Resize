@@ -17,3 +17,11 @@ form.addEventListener('submit', e => {
 
     ipcRenderer.send('image:minimize', {imgPath, quality})
 })
+
+
+//on done
+ipcRenderer.on('image:done', () => {
+    M.toast({
+        html: `Image resized to ${slider.value}% of the original size`
+    })
+}) 
