@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Shrink</title>
-    <!-- <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/materialize.min.css"> -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&display=swap" rel="stylesheet">
@@ -13,26 +13,53 @@
 <body>
     <main>
         <section class = "landing">
-            <h1 id ="logo">Image Shrink</h1>
+            <div class="container center-align">
+                <h3 id = "logo"><i class="fas fa-images">Image Shrink</i></h3>
+                <p>Choose an image to resize</p>
+                <form id = "image-form">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Browse</span>
+                            <input type="file" id="img">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input type="text" class="file-path validate" placeholder="Upload File">
+                        </div>
+                    </div>
+                    <p>
+                       <strong>Quality: </strong> 
+                       <em>The lower the quality, the smaller the file size</em>
+                    </p>
+                    <p class="range-field">
+                        <input type="range" min="0" max="100" id="slider">
+                    </p>
+                    <input type="submit" value="Resize" class="btn" style="color: rgba(238, 214, 109, 0.918);">
+                </form>
+                <div class="card output">
+                    <div class="card-content">
+                        Output Path: <span id="output-path"></span>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
-    <div class="intro">
-        <div class="intro-text">
-            <h1 class="hide">
-                <span class="text">->Shrink Your Images</span>
+    <div class="start">
+        <div>
+            <h1 class="dont-display">
+                <span class="start-text">->Shrink Your Images</span>
             </h1>
-            <h1 class="hide">
-                <span class="text">->Upto 10% Of The Original Size</span>
+            <h1 class="dont-display">
+                <span class="start-text">->Upto 10% Of The Original Size</span>
             </h1>
-            <h1 class="hide">
-                <span class="text">->No Loss In Quality</span>
+            <h1 class="dont-display">
+                <span class="start-text">->No Loss In Quality</span>
             </h1>
-            <h1 class="hide">
-                <span class="text">->No Problems</span>
+            <h1 class="dont-display">
+                <span class="start-text">->No Problems</span>
             </h1>
         </div>
     </div>
-    <div class="slider"></div>
+    <div class="slide"></div>
     <script
     src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
     integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="

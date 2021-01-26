@@ -1,4 +1,4 @@
-/* .container {
+.container {
 	width: 400px;
 	margin-top: 70px;
 	padding: 0 20px;
@@ -18,7 +18,7 @@
 
 #output-path {
 	font-weight: bold;
-} */
+}
 
 
 *{
@@ -52,7 +52,7 @@ main{
 	transform: translate(-50%, 15%);
 }
 
-.intro{
+.start{
 	background: rgba(0, 0, 0, 0.918);
 	position: fixed;
 	top: 0;
@@ -64,13 +64,14 @@ main{
 	align-items: center;
 }
 
-.intro-text{
+.start-text{
 	color: azure;
 	font-family: 'Playfair Display SC', serif;
-	font-size: 20px;
+	margin-top: 5px;
+	font-size: 35px;
 }
 
-.slider{
+.slide{
 	background: rgba(238, 214, 109, 0.918);
 	position: fixed;
 	top: 0;
@@ -80,13 +81,12 @@ main{
 	transform: translateY(100%); 
 }
 
-.hide{
-	margin-top: 10px;
+.dont-display{
 	background: rgba(0, 0, 0, 0);
 	overflow: hidden;
 }
 
-.hide span{
+.dont-display span{
 	display: inline-block;
 	transform: translateY(100%);
 }
