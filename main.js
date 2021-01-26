@@ -13,8 +13,8 @@ let aboutWindow
 function createMainWindow(){
     mainWindow = new BrowserWindow({
         title: 'Image Shrink',
-        width: 1680,
-        height: 940,
+        width: 900,
+        height: 1000,
         // alwaysOnTop: true, 
         darkTheme: true,
         opacity: isDev ? 1 : 0.5,
