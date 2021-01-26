@@ -29,7 +29,7 @@ function createaboutWindow(){
     aboutWindow = new BrowserWindow({
         title: 'About',
         width: 300,
-        height: 300,
+        height: 400,
         alwaysOnTop: true, 
         // darkTheme: true,
         // opacity: isDev ? 1 : 0.5,

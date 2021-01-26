@@ -37,6 +37,18 @@ main{
 	background-size: cover;
 }
 
+.about-background{
+	font-family: 'Playfair Display SC', serif;
+	color: azure;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	/* align-items: center; */
+	background: url("../../assets/Images/orange.jpg");
+	background-size: cover;
+}
+
 #logo{
 	font-family: 'Playfair Display SC', serif;
 	font-weight: 3px;
